@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  </head>
+  <body class="relative">
+    <nav class="fixed inset-x-0 flex items-center justify-between px-3 py-2 h-14 bg-sky-600 md:justify-between">
+      <!-- logo -->
+      <header class="text-4xl text-white capitalize font-Chaga">
+        <h1>dillah</h1>
+      </header>
+
+      <!-- primary nav -->
+      <ul id="firstLink" class="hidden text-lg text-white md:w-[60%] md:items-center md:flex md:justify-around font-Chaga">
+        <li class=""><a href="">Home</a></li>
+        <li class=""><a href="">Products</a></li>
+        <li class=""><a href="">Catalog</a></li>
+        <li class=""><a href="">Register</a></li>
+        <li class=""><a href="">Login</a></li>
+      </ul>
+
+      <!-- secondary nav -->
+      <ul id="secondaryLink" class="fixed left-0 flex flex-col items-center justify-between w-6/12 h-screen px-3 py-4 text-lg text-white capitalize transition-all duration-500 -translate-x-full top-14 md:hidden font-Chaga bg-sky-600">
+        <li class=""><a href="">Home</a></li>
+        <li class=""><a href="">Products</a></li>
+        <li class=""><a href="">Catalog</a></li>
+        <li class=""><a href="">Register</a></li>
+        <li class=""><a href="">Login</a></li>
+      </ul>
+
+      <!-- button hamburger -->
+      <div id="toggleBtn" class="text-xl text-white select-none md:hidden"><span class="material-symbols-outlined"> menu </span></div>
+    </nav>
+    <script>
+      const firstLink = document.getElementById("firstLink");
+      const secondaryLink = document.getElementById("secondaryLink");
+      const toggleBtn = document.getElementById("toggleBtn");
+
+      // fungsi untuk menghapus semua class
+      function buttonSecHandler() {
+        secondaryLink.classList.toggle("-translate-x-full");
+
+        if (toggleBtn.firstElementChild.textContent.trim() === "menu") {
+          toggleBtn.firstChild.textContent = "close";
+        } else {
+          toggleBtn.firstChild.textContent = "menu";
+        }
+      }
+
+      toggleBtn.onclick = buttonSecHandler;
+    </script>
+  </body>
+</html>

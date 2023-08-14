@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- style  -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body class="overflow-hidden bg-sky-950">
+    <nav class="fixed flex items-center justify-between w-full p-3 bg-sky-500">
+      <header class="p-2 text-2xl font-medium text-center capitalize w-a font-Chaga">
+        <h1>dillah</h1>
+      </header>
+      <ul class="w-3/4 p-5 translate-x-[700px] block right-0 justify-around items-center pt-10 top-0 transition-all duration-300 flex-col h-screen absolute md:relative md:flex md:flex-row md:h-auto md:pt-0 md:p-0 bg-sky-500 md:w-[70%] md:translate-x-0" id="navBar">
+        <li class="flex items-center justify-center w-full h-16 md:h-3 md:bg-transparent"><a class="" href="#">Home</a></li>
+        <li class="flex items-center justify-center w-full h-16 md:h-3 md:bg-transparent"><a class="" href="#">Products/Services</a></li>
+        <li class="flex items-center justify-center w-full h-16 md:h-3 md:bg-transparent"><a class="" href="#">Catalog</a></li>
+        <li class="flex items-center justify-center w-full h-16 md:h-3 md:bg-transparent"><a class="" href="#">Register</a></li>
+        <li class="flex items-center justify-center w-full h-16 md:h-3 md:bg-transparent"><a class="" href="#">Login</a></li>
+      </ul>
+      <section class="block cursor-pointer z-[2] bg-sky-950 md:hidden rounded-md text-white"><span id="symbol" class="p-3 text-2xl border-red-900 order z material-icons"> menu </span></section>
+    </nav>
+  </body>
+  <script>
+    const navBar = document.getElementById("navBar");
+    const symbol = document.getElementById("symbol");
+    const navLinks = document.querySelectorAll("#navBar li a");
+
+    function showNavBar() {
+      navBar.classList.toggle("translate-x-[700px]");
+      if (symbol.textContent.trim() === "menu") {
+        symbol.textContent = "close";
+      } else {
+        symbol.textContent = "menu";
+      }
+    }
+
+    symbol.onclick = showNavBar;
+
+    function handlerClickLink(e) {
+      navLinks.forEach((link) => {
+        link.parentNode.classList.remove("bg-sky-950", "text-white");
+        link.classList.remove("pb-2", "relative", "md:before:absolute", "md:before:w-full", "md:before:bottom-0", "md:before:h-1", "md:before:bg-sky-950");
+      });
+
+      e.currentTarget.parentNode.classList.add("bg-sky-950", "text-white");
+      e.currentTarget.classList.add("pb-2", "relative", "md:before:absolute", "md:before:w-full", "md:before:bottom-0", "md:before:h-1", "md:before:bg-sky-950");
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", handlerClickLink);
+    });
+  </script>
+</html>
